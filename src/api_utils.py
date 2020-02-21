@@ -9,6 +9,6 @@ def insert_in_collection(bbdd, items_ids, field, new_item_id):
         newvalues = { "$set": { field: item_field } }
         bbdd.update_one(query, newvalues)
 
-def check_name(bbdd, name):
-    item = bbdd.find_one({"name": name})
+def check_name(bbdd, field, name):
+    item = bbdd.find_one({field: name})
     return True if item else False
