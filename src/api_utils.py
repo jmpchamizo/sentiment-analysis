@@ -11,4 +11,9 @@ def insert_in_collection(bbdd, items_ids, field, new_item_id):
 
 def check_name(bbdd, field, name):
     item = bbdd.find_one({field: name})
-    return True if item else False
+    return item["_id"] if item else None
+
+
+def check_user_in_chat(bbdd, chat_id, user_id):
+    item = bbdd.find_one({"_id": ObjectId(chat_id)})
+    return user_id in item["users"]
