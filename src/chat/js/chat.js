@@ -6,11 +6,11 @@ $(document).ready(function(){
   window.setInterval(uploadMessages, 1000);
 
   $.get("http://localhost:5000/chat/"+chat_id, function(data,status){
-    $('body').prepend($('<label>'+data+'</label><br>'));
+    $('#title').prepend($('<lable><b>'+data+'</b></label><br>'));
   });
 
   $.get("http://localhost:5000/user/"+user_id, function(data,status){
-    $('body').prepend($('<label>'+data+'</label><br>'));
+    $('#title').prepend($('<label><b>'+data+'</b></label><br>'));
   });
 
 
@@ -24,8 +24,6 @@ $(document).ready(function(){
     $.get("http://localhost:5000/username/"+newUser, function(data,status){
       new_user_id = data
       $.get("http://localhost:5000/chat/"+chat_id+"/adduser?user="+new_user_id, function(data,status){
-        console.log(data)
-        console.log("################")
         if (data == "The user is already in the chat"){
           alert(data)
         }
@@ -53,5 +51,26 @@ function uploadMessages(){
       $("#area").append(Object.values(d)[0][0]+": "+ Object.values(d)[0][1]+"\n")
     }
   });
+
+
+
+
+  $.get("http://localhost:5000/chat/"+chat_id, function(data,status){
+      chat_name = data
+      $.get("http://localhost:5000/chat/"+chat_name+"/similarity", function(data, status){
+      $('#rec_chats').append($('<ul>'));
+      i = 0
+      for (chat in JSON.parse(data)){
+        $('ul').append($('<li><a href="chat.html?chat='+chat+'&user='+user_id+'">'+Object.values(JSON.parse(data))[i]+'</a></li>'));
+        i++;
+      }
+    });  
+  });
+
+
+
+
+
+
 }
 

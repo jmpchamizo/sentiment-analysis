@@ -68,7 +68,10 @@ def get_messages(chat_id):
     messages_ids =  db.chat.find_one({"_id":ObjectId(chat_id)})["messages"]
     for m_id in messages_ids:
         mess = db.message.find_one({"_id":ObjectId(m_id)})
-        username = db.user.find_one({"_id": ObjectId(mess["user_id"])})["username"]
+        try:
+            username = db.user.find_one({"_id": ObjectId(mess["user_id"])})["username"]
+        except TypeError:
+            continue
         result.append({mess["pos"]: [username, mess["text"]]})
     return dumps(result)
 
@@ -111,7 +114,7 @@ def get_all_users():
 def get_all_messages_from_user(user_id):
     return dumps(db.message.find({"user_id":user_id},{"text":1, "_id":0}))
 
-@app.route('/user/<user_name>/chats')
+@app.route('/user/<user_name>/chats/sentiment')
 def get_best_chats_for_user(user_name):
     return dumps(sentiment_utils.get_chats_for_user(user_name))
 

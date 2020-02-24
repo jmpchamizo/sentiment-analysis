@@ -2,13 +2,25 @@
 <html>
     <head>
     <title>Chat</title>
+     <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <script src="../js/chat.js"></script>
     </head>
 <body>
-      <textarea id="area" rows="30" cols="50"></textarea><br>
-      <input type="text" id="message" placeholder="Write a message"/>
-      <button id="btnSend">Send</button><br>
-      <input type="text" id="username" placeholder="Add user"/>
-      <button id="btnAdd">Add</button>
+    <div class="row pt-2">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4" id="title">
+            <textarea id="area" rows="30" cols="50"></textarea><br>
+            <input type="text" id="message" placeholder="Write a message"/>
+            <button type="button" class="btn btn-dark" id="btnSend">Send</button><br><br>
+            <input type="text" id="username" placeholder="Add user"/>
+            <button type="button" class="btn btn-dark" id="btnAdd">Add</button>
+        </div>
+        <div class="col-sm-4"></div>
 </body>
