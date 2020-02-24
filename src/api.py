@@ -114,18 +114,22 @@ def get_all_users():
     return dumps(db.user.find({}))
 
 @app.route('/user/<user_id>/messages')
+@cross_origin()
 def get_all_messages_from_user(user_id):
     return dumps(db.message.find({"user_id":user_id},{"text":1, "_id":0}))
 
 @app.route('/user/<user_name>/chats/sentiment')
+@cross_origin()
 def get_best_chats_for_user(user_name):
     return dumps(sentiment_utils.get_chats_for_user(user_name))
 
 @app.route('/chat/<chat_name>/similarity')
+@cross_origin()
 def get_best_chats_for_chat(chat_name):
     return dumps(similarity_utils.get_chat_similarity(chat_name))
 
 @app.route('/user/<user_name>/similarity')
+@cross_origin()
 def get_best_users_for_user(user_name):
     return dumps(similarity_utils.get_user_similarity(user_name))
 

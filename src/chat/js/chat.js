@@ -5,6 +5,8 @@ $(document).ready(function(){
   uploadMessages()
   window.setInterval(uploadMessages, 1000);
 
+
+
   $.get("http://localhost:5000/chat/"+chat_id, function(data,status){
     $('#title').prepend($('<lable><b>'+data+'</b></label><br>'));
   });
@@ -29,8 +31,8 @@ $(document).ready(function(){
         }
       });
     });
-    
   });
+
   $("#btnSend").click(function(){
     var text = $("#message").val();
       $.ajax({
@@ -58,19 +60,16 @@ function uploadMessages(){
   $.get("http://localhost:5000/chat/"+chat_id, function(data,status){
       chat_name = data
       $.get("http://localhost:5000/chat/"+chat_name+"/similarity", function(data, status){
-      $('#rec_chats').append($('<ul>'));
-      i = 0
-      for (chat in JSON.parse(data)){
-        $('ul').append($('<li><a href="chat.html?chat='+chat+'&user='+user_id+'">'+Object.values(JSON.parse(data))[i]+'</a></li>'));
-        i++;
+        $('#rec_chats').empty()
+        $('#rec_chats').append($('<h6>Recomended chats:</h6>'));
+        $('#rec_chats').append($('<ul id="recchat">'));
+        i = 0
+        for (chat in JSON.parse(data)){
+          $('#recchat').append($('<li><a href="chat.html?chat='+Object.values(JSON.parse(data))[i]+'&user='+user_id+'">'+chat+'</a></li>'));
+          i++;
       }
     });  
   });
-
-
-
-
-
 
 }
 
