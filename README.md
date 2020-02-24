@@ -9,7 +9,7 @@
 
 ## Descripción de la api
 <p>Endpoints:</p>
-<blockquote><code>/user/create/[username]</code></blockquote>
+<code><blockquote>/user/create/[username]</blockquote></code>
 <p>Permite crear un usuario:</p>
 <ul>
     <li>Method: GET</li>
