@@ -5,8 +5,11 @@ import api_utils as api
 import json, sentiment_utils, similarity_utils
 from bson.json_util import dumps
 from flask_cors import cross_origin
+import os
+from config import dbURL
 
-client = MongoClient("mongodb://localhost/analysis")
+#client = MongoClient("mongodb://localhost/analysis")
+client = MongoClient(dbURL)
 db = client["analysis"]
 
 app = Flask(__name__)
@@ -126,4 +129,5 @@ def get_best_chats_for_chat(chat_name):
 def get_best_users_for_user(user_name):
     return dumps(similarity_utils.get_user_similarity(user_name))
 
-app.run("0.0.0.0", 5000, debug=True)
+#app.run("0.0.0.0", 5000, debug=True)
+app.run("0.0.0.0", os.getenv("PORT"), debug=True)

@@ -1,4 +1,6 @@
 .DS_Store
+dump
+.private.env
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
