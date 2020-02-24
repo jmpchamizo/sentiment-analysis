@@ -3,7 +3,9 @@
 <p>Implementación de una api que permita la creación de una base de datos (en MongoDB) de usuarios, mensajes y chats y analice el contenido de estos chats para después recomendar a usuarios a otros usuarios en función del contenido de sus mensajes, también recomendará por chat otros chats por el contenido de estos y por último ofrecerá chats a los usuarios comparando los sentimientos de los mensajes de los usuarios en función de los sentimientos de los chats.</p>
 
 ## Contenido en las carpetas
-<p>En la carpeta Input tenemos un json con la bbdd de usuarios, chats y  mensajes que corresponden a dialogos de la serie Battlestar Gallactica sacados de la web https://www.tv-quotes.com/shows/battlestar-galactica-2003.html</p>
+<p>En la carpeta Input/ esta la carpeta dumps con la bbdd analysis con las colecciones que corresponden a dialogos de la serie Battlestar Gallactica sacados de la web https://www.tv-quotes.com/shows/battlestar-galactica-2003.html</p>
+<p>Para cargar la bbdd en local desde la carpeta Input/:</p>
+<pre><code>mongorestore --uri="mongodb://localhost/analysis"</code></pre>
 <p>En la carpeta src/chat, además hay un chat en js básico para visualizar el contenido de los chat según el usuario. También se puede dar de alta usuarios, chats y mensajes desde ahi como un ejemplo de uso de la api</p>
 <p>El chat no esta finalizado produciendo errores si se introducen usuarios que no tengan chats, ni mensajes.</p>
 
@@ -76,13 +78,13 @@
     <li>Param: chat_id (id del chat del que queremos su nombre)</li>
     <li>Return: chat_name</li>
 </ul>
-<blockquote><code>/chats</code></blockquote>
+<pre><code>/chats</code></pre>
 <p>Devuelve todos los chats de la base de datos:</p>
 <ul>
     <li>Method: GET</li>
     <li>Return: lista con los ids de los chats</li>
 </ul>
-<blockquote><code>/users</code></blockquote>
+<pre><code>/users</code></pre>
 <p>Devuelve todos los users de la base de datos:</p>
 <ul>
     <li>Method: GET</li>
