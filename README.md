@@ -123,8 +123,11 @@
 
 <p>Adjunto capturas de las colecciones</p>
 <p>user</p>
+
 ![User](img/user.png)
 <p>chat</p>
+
 ![Chat](img/chat.png)
 <p>message:</p>
+
 ![Message](img/message.png)
