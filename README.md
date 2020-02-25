@@ -119,4 +119,12 @@
     <li>Return: lista con los nombres de los 5 users más parecidos</li>
 </ul>
 
+## Colecciones de Mongo
 
+<p>Adjunto capturas de las colecciones</p>
+<p>user</p>
+![User](img/user.png)
+<p>chat</p>
+![Chat](img/chat.png)
+<p>message:</p>
+![Message](img/message.png)
